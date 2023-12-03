@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href='/static/style.css' />
+		<meta charset="UTF-8" />
+		<title>Inteligencia Artificial para detección de Malaria</title>
+	</head>
+	<body>
+
+		{% if img %}
+		<h1>Imagen de la célula</h1>
+		<img src="{{img}}" />
+		<h1>{{prediction}}</h1>
+		{% else %}
+		<h1>Imagen de la Célula a evaluar</h1>
+		{% endif %}
+		<form
+			action="{{ url_for('upload_file') }}"
+			enctype="multipart/form-data"
+			method="POST"
+		>
+			<input name="img" type="file" />
+			<input type="submit" value="Enviar"/>
+		</form>
+	</body>
+</html>
